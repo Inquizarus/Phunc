@@ -1,7 +1,7 @@
 <?php
 namespace Inquizarus\Phunc;
 
-interface FunctorInterface 
+interface FunctorInterface
 {
     /**
      * @param \Closure|string $f       The function to run when reducing
@@ -24,4 +24,11 @@ interface FunctorInterface
      * @return FunctorInterface New set of data wrapped in a Functor
      */
     public function map($f): FunctorInterface;
+
+    /**
+     * Return internally stored value
+     *
+     * @return mixed
+     */
+    public function eject();
 }

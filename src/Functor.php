@@ -58,6 +58,14 @@ class Functor implements FunctorInterface
     }
 
     /**
+     * @inheritDoc
+     */
+    public function eject()
+    {
+        return $this->data;
+    }
+
+    /**
      * @param string $input The string to convert to an array
      *
      * @return string[]

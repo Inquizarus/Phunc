@@ -100,7 +100,7 @@ class FunctorTest extends TestCase
      */
     public function testThatItCanMapArrays()
     {
-        $functor = new Functor("abc");
+        $functor = new Functor(["a", "b", "c"]);
         $ff = function($i){
             if ("b" === $i) {
                 return strtoupper($i);
@@ -108,6 +108,22 @@ class FunctorTest extends TestCase
             return $i;
         };
         $result = $functor->map($ff);
-        $this->assertEquals(new Functor("aBc"), $result);
+        $this->assertEquals(new Functor(["a", "B", "c"]), $result);
+    }
+
+    /**
+     * @test
+     */
+    public function testThatDataCanBeEjected()
+    {
+        $functor = new Functor("abc");
+        $ff = function($i){
+            if ("b" === $i) {
+                return false;
+            }
+            return true;
+        };
+        $result = $functor->filter($ff)->eject();
+        $this->assertEquals("ac", $result);
     }
 }
