@@ -4,7 +4,7 @@ namespace Inquizarus\Phunc\Test;
 use \PHPUnit\Framework\TestCase;
 use \Inquizarus\Phunc\Functor;
 
-class FunctorTest extends TestCase 
+class FunctorTest extends TestCase
 {
 
     /**
