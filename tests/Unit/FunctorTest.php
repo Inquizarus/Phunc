@@ -114,6 +114,38 @@ class FunctorTest extends TestCase
     /**
      * @test
      */
+    public function testThatItCanForEachOnStringsWithoutModifying()
+    {
+        $base = "abc";
+        $functor = new Functor($base);
+
+        // Try to modify the item
+        $mf = function($item) {
+            $item = "d";
+        };
+
+        $this->assertEquals($base, $functor->each($mf)->eject());
+    }
+
+    /**
+     * @test
+     */
+    public function testThatItCanForEachOnArraysWithoutModifying()
+    {
+        $base = ["a", "b", "c"];
+        $functor = new Functor($base);
+
+        // Try to modify the item
+        $mf = function($item) {
+            $item = "d";
+        };
+
+        $this->assertEquals($base, $functor->each($mf)->eject());
+    }
+
+    /**
+     * @test
+     */
     public function testThatDataCanBeEjected()
     {
         $functor = new Functor("abc");

@@ -26,6 +26,13 @@ interface FunctorInterface
     public function map($f): FunctorInterface;
 
     /**
+     * @param \Closure|string $f The function to run for each iteration
+     *
+     * @return FunctorInterface Unchanged set of data
+     */
+    public function each($f): FunctorInterface;
+
+    /**
      * Return internally stored value
      *
      * @return mixed

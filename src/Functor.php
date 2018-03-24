@@ -60,6 +60,24 @@ class Functor implements FunctorInterface
     /**
      * @inheritDoc
      */
+    public function each($f): FunctorInterface
+    {
+        $data = true === is_string($this->data)
+            ? $this->arrayFromString($this->data)
+            : $this->data;
+
+        $l = count($data);
+
+        for ($i=0; $i < $l; $i++) {
+            $f($data[$i]);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function eject()
     {
         return $this->data;

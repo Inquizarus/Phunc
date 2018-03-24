@@ -45,6 +45,16 @@ class FunctionsTest extends TestCase
         $this->assertEquals("abc", reduce(["a", "b", "c"], "append"));
     }
 
+    public function testThatItCanDoEach()
+    {
+        $base = "abc";
+        // Try to modify the item
+        $mf = function($item) {
+            $item = "d";
+        };
+        $this->assertEquals($base, feach($base, $mf)->eject());
+    }
+
     /**
      * @test
      */

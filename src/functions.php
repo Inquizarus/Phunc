@@ -20,6 +20,12 @@ if (true !== function_exists("filter")) {
     }
 }
 
+if (true !== function_exists("feach")) {
+    function feach($input, $f) {
+        return (new Functor($input))->each($f);
+    }
+}
+
 if (true !== function_exists("append")) {
     function append($a, $b)
     {
